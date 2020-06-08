@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Set_text_to_A</name>
+        <label>Set text to A</label>
+        <locationX>482</locationX>
+        <locationY>181</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Text_Field__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>A</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_text_to_B</name>
+        <label>Set text to B</label>
+        <locationX>516</locationX>
+        <locationY>302</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Text_Field__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>B</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Text_to_C</name>
+        <label>Set Text to C</label>
+        <locationX>535</locationX>
+        <locationY>417</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Text_Field__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>C</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_text_to_D</name>
+        <label>Set text to D</label>
+        <locationX>419</locationX>
+        <locationY>494</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Text_Field__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>D</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Text_to_F</name>
+        <label>Set Text to F</label>
+        <locationX>295</locationX>
+        <locationY>542</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Text_Field__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>F</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>EvaluateSource</name>
+        <label>Evaluate Source</label>
+        <locationX>221</locationX>
+        <locationY>356</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>set_to_a</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_text_to_A</targetReference>
+            </connector>
+            <label>set to a</label>
+        </rules>
+        <rules>
+            <name>set_to_b</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>2</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_text_to_B</targetReference>
+            </connector>
+            <label>set to b</label>
+        </rules>
+        <rules>
+            <name>set_to_c</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>3.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Text_to_C</targetReference>
+            </connector>
+            <label>set to c</label>
+        </rules>
+        <rules>
+            <name>set_to_d</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>4.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_text_to_D</targetReference>
+            </connector>
+            <label>set to d</label>
+        </rules>
+        <rules>
+            <name>set_to_f</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>5.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Text_to_F</targetReference>
+            </connector>
+            <label>set to f</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Set Field Before Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Set Text Field in Flow Before Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>EvaluateSource</targetReference>
+        </connector>
+        <object>TestObject__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>
